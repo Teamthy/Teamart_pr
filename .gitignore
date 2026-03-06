@@ -1,8 +1,64 @@
+# Node modules and build output
 node_modules/
 .next/
-.env.local
-.env
-.DS_Store
+out/
 dist/
+build/
+
+# Local env files (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor and IDE
 .vscode/
-package-lock.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# TypeScript
+*.tsbuildinfo
+
+# Test coverage and reports
+coverage/
+coverage-final.json
+jest-report/
+
+# Dependency manager caches
+.pnpm-store/
+.cache/
+.cache-loader/
+.cache/
+
+# Vercel and deployment
+.vercel/
+.vercel_build_output/
+.now/
+netlify.toml
+
+# Docker
+docker-compose.override.yml
+docker-compose.*.yml
+docker/
+**/Dockerfile
+
+# Sanity and CMS local files
+.sanity/
+.sanity-cache/
+
+# Misc
+*.log
+*.local
+*.tmp
+*.temp
+
