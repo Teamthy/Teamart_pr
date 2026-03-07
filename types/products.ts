@@ -1,6 +1,11 @@
-export interface Product {
-    id: string
-    name: string
-    price: number
-    image: string
-}
+export type Product = {
+    id: number;
+    name: string;
+    price: number;
+    category: string;
+    image: string;
+    rating: number;
+    reviews: number;
+    tag?: string;
+    stock: number;
+};

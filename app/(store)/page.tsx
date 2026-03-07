@@ -1,11 +1,19 @@
-import Hero from "@/components/home/Hero"
-import Features from "@/components/home/Features"
+'use client';
+import React from 'react';
+import AppShell from '@/components/layout/Navbar';
+import Hero from '@/components/home/Hero';
+import Features from '@/components/home/Features';
+import AppContent from '@/components/AppContent';
 
-export default function Home() {
+export default function StoreHome() {
     return (
-        <main className="container mx-auto px-6">
-            <Hero />
-            <Features />
-        </main>
-    )
+        <>
+            <AppShell />
+            <main className="pt-20">
+                <Hero />
+                <AppContent />
+                <Features />
+            </main>
+        </>
+    );
 }
