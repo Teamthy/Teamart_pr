@@ -7,45 +7,15 @@
   "engines": {
     "node": ">=20"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Teamthy/Teamart_pr.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Teamthy/Teamart_pr/issues"
-  },
-  "homepage": "https://github.com/Teamthy/Teamart_pr#readme",
-  "files": [
-    "app",
-    "components",
-    "lib",
-    "sanity",
-    "store",
-    "styles"
-  ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start -p $PORT",
+    "preview": "next start --port 3001",
     "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
     "typecheck": "tsc --noEmit",
-    "test": "vitest",
-    "format": "prettier --write .",
-    "clean": "rimraf .next node_modules dist",
-    "prepare": "husky install",
-    "preview": "next start --port 3001"
+    "format": "prettier --write ."
   },
-  "keywords": [
-    "nextjs",
-    "react",
-    "ecommerce",
-    "tailwind",
-    "sanity",
-    "stripe",
-    "clerk"
-  ],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@clerk/nextjs": "^7.0.1",
     "@sanity/client": "^7.16.0",
@@ -53,6 +23,7 @@
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "lucide-react": "^0.268.0",
     "shadcn-ui": "^0.9.5",
     "stripe": "^20.4.0",
     "tailwindcss": "^4.2.1",
@@ -67,6 +38,7 @@
     "vitest": "^4.0.18",
     "ts-node": "^10.9.2",
     "rimraf": "^5.0.0",
-    "husky": "^9.0.0"
+    "husky": "^9.0.0",
+    "@tailwindcss/line-clamp": "^0.4.0"
   }
 }

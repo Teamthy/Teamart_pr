@@ -1,14 +1,25 @@
-// app/layout.tsx
-import './globals.css'
+import "./globals.css"
+import { ClerkProvider } from "@clerk/nextjs"
+import Navbar from "@/components/layout/Navbar"
 
-export const metadata = { title: 'Teamart' }
+export const metadata = {
+    title: "Teamart",
+    description: "Production ready ecommerce"
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+    children
+}: {
+    children: React.ReactNode
+}) {
     return (
-        <html lang="en">
-            <body suppressHydrationWarning>
-                {children}
-            </body>
-        </html>
+        <ClerkProvider>
+            <html lang="en">
+                <body>
+                    <Navbar />
+                    {children}
+                </body>
+            </html>
+        </ClerkProvider>
     )
 }
