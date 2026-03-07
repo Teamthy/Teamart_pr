@@ -1,41 +1,72 @@
 {
   "name": "teamart_pr",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "commonjs",
+  "private": true,
+  "description": "Teamart — production ready ecommerce starter built with Next.js, React, Tailwind, Clerk, Sanity, and Stripe",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Teamthy/Teamart_pr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Teamthy/Teamart_pr/issues"
+  },
+  "homepage": "https://github.com/Teamthy/Teamart_pr#readme",
+  "files": [
+    "app",
+    "components",
+    "lib",
+    "sanity",
+    "store",
+    "styles"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx",
+    "start": "next start -p $PORT",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
     "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "test": "vitest",
+    "format": "prettier --write .",
+    "clean": "rimraf .next node_modules dist",
+    "prepare": "husky install",
+    "preview": "next start --port 3001"
   },
-  "keywords": [],
+  "keywords": [
+    "nextjs",
+    "react",
+    "ecommerce",
+    "tailwind",
+    "sanity",
+    "stripe",
+    "clerk"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@clerk/nextjs": "^7.0.1",
     "@sanity/client": "^7.16.0",
-    "@types/node": "^25.3.5",
-    "@types/react": "^19.2.14",
-    "autoprefixer": "^10.4.27",
     "framer-motion": "^12.35.0",
     "next": "^16.1.6",
-    "postcss": "^8.5.8",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "shadcn-ui": "^0.9.5",
     "stripe": "^20.4.0",
     "tailwindcss": "^4.2.1",
-    "typescript": "^5.9.3",
-    "zustand": "^5.0.11"
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "zustand": "^5.0.11",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "eslint": "^10.0.2",
     "prettier": "^3.8.1",
+    "vitest": "^4.0.18",
     "ts-node": "^10.9.2",
-    "vitest": "^4.0.18"
+    "rimraf": "^5.0.0",
+    "husky": "^9.0.0"
   }
 }
