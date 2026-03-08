@@ -1,21 +1,54 @@
-// components/home/Hero.tsx
-import Link from 'next/link'
+import Image from "next/image"
 
 export default function Hero() {
     return (
-        <section className="relative h-[70vh]">
-            <img src="/hero.jpg" alt="hero" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="relative z-10 container h-full flex items-start">
-                <div className="pt-16 max-w-lg">
-                    <p className="text-sm">VISION-AI FITTING NOW LIVE</p>
-                    <h1 className="text-5xl font-bold leading-tight mt-3">STYLE MEETS<br />PRECISION</h1>
-                    <p className="mt-4 text-gray-700">Experience the future of fashion with Teamart. Production-ready, performance-driven, and designed for the modern creator.</p>
-                    <div className="mt-6 flex gap-4">
-                        <Link href="/store/products" className="px-6 py-3 bg-black text-white rounded-full">Shop Collection</Link>
-                        <Link href="/(auth)/sign-in" className="px-6 py-3 border rounded-full">Start Try-On</Link>
+        <section className="relative w-full h-[600px]">
+
+            {/* Background Image */}
+            <Image
+                src="/hero.jpg"
+                alt="hero"
+                fill
+                className="object-cover"
+                priority
+            />
+
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/30"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex items-center">
+                <div className="max-w-[1280px] mx-auto px-6">
+
+                    <div className="max-w-xl text-white">
+
+                        <h1 className="text-6xl font-bold leading-tight">
+                            Big Deals. <br />
+                            Bigger Savings.
+                        </h1>
+
+                        <p className="mt-6 text-lg text-gray-200">
+                            Discover premium products at unbeatable prices curated for
+                            quality, comfort and style.
+                        </p>
+
+                        <div className="flex gap-4 mt-8">
+
+                            <button className="bg-white text-black px-6 py-3 rounded-md font-medium">
+                                Get Started
+                            </button>
+
+                            <button className="border border-white px-6 py-3 rounded-md font-medium">
+                                See Demo
+                            </button>
+
+                        </div>
+
                     </div>
+
                 </div>
             </div>
+
         </section>
     )
 }

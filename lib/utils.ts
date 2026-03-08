@@ -1,4 +1,6 @@
-// utils.ts
-export function formatCurrency(n: number) {
-    return n.toLocaleString(undefined, { style: 'currency', currency: 'USD' })
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
