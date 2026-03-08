@@ -1,1 +1,4 @@
-export const formatCurrency = (n: number) => `$${n.toFixed(2)}`;
+// utils.ts
+export function formatCurrency(n: number) {
+    return n.toLocaleString(undefined, { style: 'currency', currency: 'USD' })
+}

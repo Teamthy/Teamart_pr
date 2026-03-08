@@ -1,17 +1,32 @@
-// Lightweight proxy helper (optional). Keep for local dev if you need to proxy requests.
-import http from 'http';
-import httpProxy from 'http-proxy';
+export async function proxy(req: Request) {
+    const url = new URL(req.url)
 
-const proxy = httpProxy.createProxyServer({});
-const server = http.createServer((req, res) => {
-    // Example: proxy /api/vision to local Vision AI server
-    if (req.url?.startsWith('/api/vision')) {
-        proxy.web(req, res, { target: 'http://localhost:5000' });
-    } else {
-        res.statusCode = 404;
-        res.end('Not proxied');
+    try {
+        const target =
+            "http://localhost:5000" +
+            url.pathname.replace("/api/vision", "")
+
+        const res = await fetch(target + url.search, {
+            method: req.method,
+            headers: req.headers,
+            body:
+                req.method !== "GET" && req.method !== "HEAD"
+                    ? await req.arrayBuffer()
+                    : undefined
+        })
+
+        return new Response(await res.arrayBuffer(), {
+            status: res.status,
+            headers: res.headers
+        })
+    } catch (err) {
+        console.error("Proxy error", err)
+        return new Response("Proxy error", { status: 500 })
     }
-});
+}
 
-server.listen(5050);
-console.log('Proxy listening on :5050');
+export const config = {
+    matcher: "/api/vision/:path*"
+}
+
+export default proxy

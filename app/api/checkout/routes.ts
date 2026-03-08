@@ -1,34 +1,26 @@
-import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', { apiVersion: '2022-11-15' });
+// app/api/checkout/route.ts
+import { NextResponse } from 'next/server'
+import { stripe, buildLineItems } from '@/lib/stripe'
 
 export async function POST(req: Request) {
     try {
-        const body = await req.json();
-        const { items, successUrl, cancelUrl } = body;
-
-        // Build line items from client payload (validate on server in production)
-        const line_items = items.map((i: any) => ({
-            price_data: {
-                currency: 'usd',
-                product_data: { name: i.name },
-                unit_amount: Math.round(i.price * 100)
-            },
-            quantity: i.quantity
-        }));
+        const body = await req.json()
+        // body.items: [{ id, name, price, quantity }]
+        if (!Array.isArray(body.items) || body.items.length === 0) {
+            return NextResponse.json({ error: 'No items' }, { status: 400 })
+        }
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
+            line_items: buildLineItems(body.items),
             mode: 'payment',
-            line_items,
-            success_url: successUrl || `${process.env.NEXT_PUBLIC_APP_URL}/success`,
-            cancel_url: cancelUrl || `${process.env.NEXT_PUBLIC_APP_URL}/cart`
-        });
+            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/store/checkout?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/store/cart`,
+        })
 
-        return NextResponse.json({ url: session.url });
-    } catch (err: any) {
-        console.error(err);
-        return NextResponse.json({ error: err.message }, { status: 500 });
+        return NextResponse.json({ url: session.url })
+    } catch (err) {
+        console.error(err)
+        return NextResponse.json({ error: 'Server error' }, { status: 500 })
     }
 }

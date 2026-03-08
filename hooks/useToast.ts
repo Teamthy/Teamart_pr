@@ -1,10 +1,12 @@
-import { useState } from 'react';
+// hooks/useToast.ts
+'use client'
+import { useState } from 'react'
 
 export default function useToast() {
-    const [visible, setVisible] = useState(false);
-    const show = () => {
-        setVisible(true);
-        setTimeout(() => setVisible(false), 3000);
-    };
-    return { isToastVisible: visible, showToast: show };
+    const [message, setMessage] = useState<string | null>(null)
+    function show(msg: string, ms = 3000) {
+        setMessage(msg)
+        setTimeout(() => setMessage(null), ms)
+    }
+    return { message, show }
 }

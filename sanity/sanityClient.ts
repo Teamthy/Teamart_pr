@@ -1,8 +1,20 @@
-import { createClient } from 'next-sanity';
+// sanity/sanityClient.ts
+import SanityClient from '@sanity/client'
+import imageUrlBuilder from '@sanity/image-url'
 
-export const sanityClient = createClient({
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+export const client = SanityClient({
+    projectId: process.env.SANITY_PROJECT_ID!,
+    dataset: process.env.SANITY_DATASET || 'production',
+    useCdn: process.env.NODE_ENV === 'production',
     apiVersion: '2024-01-01',
-    useCdn: process.env.NODE_ENV === 'production'
-});
+})
+
+const builder = imageUrlBuilder(client)
+export const urlFor = (source: any) => builder.image(source)
+
+export async function getProducts() {
+    const query = `*[_type == "product" && defined(slug.current)] | order(_createdAt desc) {
+    _id, title, shortDescription, price, images, slug
+  }`
+    return client.fetch(query)
+}

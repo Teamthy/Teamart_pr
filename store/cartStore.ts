@@ -1,22 +1,56 @@
-import { create } from "zustand"
-import { Product } from "@/types/product"
+'use client'
 
-interface CartState {
-    items: Product[]
-    addToCart: (product: Product) => void
-    removeFromCart: (id: string) => void
+import { create } from "zustand"
+
+export type CartItem = {
+    id: string
+    name: string
+    price: number
+    image?: string
+    quantity: number
 }
 
-export const useCartStore = create<CartState>((set) => ({
+type CartStore = {
+    items: CartItem[]
+    addItem: (item: CartItem) => void
+    removeItem: (id: string) => void
+    clearCart: () => void
+    getTotal: () => number
+}
+
+export const useCartStore = create<CartStore>((set, get) => ({
     items: [],
 
-    addToCart: (product) =>
+    addItem: (item) =>
+        set((state) => {
+            const existing = state.items.find((i) => i.id === item.id)
+
+            if (existing) {
+                return {
+                    items: state.items.map((i) =>
+                        i.id === item.id
+                            ? { ...i, quantity: i.quantity + 1 }
+                            : i
+                    ),
+                }
+            }
+
+            return {
+                items: [...state.items, { ...item, quantity: 1 }],
+            }
+        }),
+
+    removeItem: (id) =>
         set((state) => ({
-            items: [...state.items, product]
+            items: state.items.filter((item) => item.id !== id),
         })),
 
-    removeFromCart: (id) =>
-        set((state) => ({
-            items: state.items.filter(i => i.id !== id)
-        }))
+    clearCart: () =>
+        set({ items: [] }),
+
+    getTotal: () =>
+        get().items.reduce(
+            (total, item) => total + item.price * item.quantity,
+            0
+        ),
 }))

@@ -1,17 +1,33 @@
-import './globals.css';
-import React from 'react';
+import "./globals.css"
+import Navbar from "@/components/layout/Navbar"
+import Footer from "@/components/layout/footer"
+import { ClerkProvider } from "@clerk/nextjs"
 
 export const metadata = {
-    title: 'Teamart',
-    description: 'Vision-AI try-on ecommerce demo'
-};
+    title: "Teamart",
+    description: "Modern ecommerce store",
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode
+}) {
     return (
-        <html lang="en">
-            <body suppressHydrationWarning className="min-h-screen bg-white font-sans text-black">
-                {children}
-            </body>
-        </html>
-    );
+        <ClerkProvider>
+            <html lang="en">
+                <body className="min-h-screen flex flex-col">
+
+                    <Navbar />
+
+                    <main className="flex-1">
+                        {children}
+                    </main>
+
+                    <Footer />
+
+                </body>
+            </html>
+        </ClerkProvider>
+    )
 }

@@ -19,8 +19,10 @@
   "dependencies": {
     "@clerk/nextjs": "^7.0.1",
     "@sanity/client": "^7.16.0",
+    "@tailwindcss/postcss": "^4.2.1",
     "autoprefixer": "^10.4.27",
     "framer-motion": "^12.35.0",
+    "http-proxy": "^1.18.1",
     "lucide-react": "^0.577.0",
     "next": "^16.1.6",
     "postcss": "^8.5.8",
@@ -41,7 +43,6 @@
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
     "rimraf": "^5.0.0",
-    "tailwindcss": "^4.2.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"

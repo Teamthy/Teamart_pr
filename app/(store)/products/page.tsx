@@ -1,12 +1,12 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import { PRODUCTS } from '@/lib/mockProducts';
-import ProductDetail from '@/components/product/ProductDetail';
+// app/(store)/products/page.tsx
+import ProductGrid from '@/components/products/productGrid'
 
-type Props = { params: { slug: string } };
-
-export default function ProductPage({ params }: Props) {
-    const product = PRODUCTS.find(p => p.id.toString() === params.slug || p.name.toLowerCase().replace(/\s+/g, '-') === params.slug);
-    if (!product) return notFound();
-    return <ProductDetail product={product} />;
+export default function ProductsPage() {
+    return (
+        <div className="container py-8">
+            <h1 className="text-2xl font-semibold mb-4">Products</h1>
+            {/* server component product grid */}
+            <ProductGrid />
+        </div>
+    )
 }
