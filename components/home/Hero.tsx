@@ -13,17 +13,17 @@ export default function Hero() {
                     transition={{ duration: 0.6 }}
                 >
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
-                        AI-powered <br /> influencer marketing <br /> made simple.
+                        The future of <br />online shopping.
                     </h1>
                     <p className="mt-4 text-gray-600 text-base md:text-lg max-w-lg">
-                        Unlock smarter workflows with AI tools designed to boost productivity, simplify tasks and help you do more with less effort.
+                        Discover premium products, exclusive deals, and a seamless shopping experience designed for modern lifestyles.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
                         <button className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-sm hover:bg-indigo-700 transition-colors">
                             Get started
                         </button>
                         <button className="px-6 py-3 rounded-xl border border-gray-300 text-gray-800 font-semibold hover:bg-gray-50 transition-colors">
-                            Watch demo
+                            Shop Now
                         </button>
                     </div>
                 </motion.div>
@@ -60,8 +60,8 @@ export default function Hero() {
                                 <Zap size={18} />
                             </div>
                             <div>
-                                <p className="text-xs text-gray-500">Instant launch</p>
-                                <p className="text-sm font-semibold">Ready in 24h</p>
+                                <p className="text-xs text-gray-500">Instant Delivery</p>
+                                <p className="text-sm font-semibold">Doorstep in 24h</p>
                             </div>
                         </div>
                     </div>

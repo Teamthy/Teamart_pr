@@ -19,6 +19,7 @@ export default function Footer() {
                     <Github size={18} />
                 </div>
                 <p className="text-xs text-gray-500">Copyright © {new Date().getFullYear()} Teamart. All rights reserved.</p>
+                <p className="text-xs text-gray-500">Designed by Teamthy</p>
             </div>
         </footer>
     )
