@@ -6,14 +6,16 @@ export async function proxy(req: Request) {
             "http://localhost:5000" +
             url.pathname.replace("/api/vision", "")
 
-        const res = await fetch(target + url.search, {
+        const init: RequestInit = {
             method: req.method,
             headers: req.headers,
-            body:
-                req.method !== "GET" && req.method !== "HEAD"
-                    ? await req.arrayBuffer()
-                    : undefined
-        })
+        }
+
+        if (req.method !== "GET" && req.method !== "HEAD") {
+            init.body = await req.arrayBuffer()
+        }
+
+        const res = await fetch(target + url.search, init)
 
         return new Response(await res.arrayBuffer(), {
             status: res.status,

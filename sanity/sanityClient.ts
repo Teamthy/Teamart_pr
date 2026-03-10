@@ -1,6 +1,6 @@
 // sanity/sanityClient.ts
 import SanityClient from '@sanity/client'
-import imageUrlBuilder from '@sanity/image-url'
+import imageUrlBuilder, { type SanityImageSource } from '@sanity/image-url'
 
 export const client = SanityClient({
     projectId: process.env.SANITY_PROJECT_ID!,
@@ -10,7 +10,7 @@ export const client = SanityClient({
 })
 
 const builder = imageUrlBuilder(client)
-export const urlFor = (source: any) => builder.image(source)
+export const urlFor = (source: SanityImageSource) => builder.image(source)
 
 export async function getProducts() {
     const query = `*[_type == "product" && defined(slug.current)] | order(_createdAt desc) {

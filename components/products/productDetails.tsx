@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { Product } from '@/types/products';
+import type { Product } from '@/types/products';
 
 export default function ProductDetail({ product }: { product: Product }) {
     return (

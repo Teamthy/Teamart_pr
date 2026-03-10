@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 
-export const runtime = 'edge' // optional
+export const runtime = 'nodejs'
 
 export async function POST(req: Request) {
     const sig = req.headers.get('stripe-signature') || ''

@@ -1,11 +1,11 @@
 // components/cart/CartDrawer.tsx
 'use client'
-import useCart from '@/store/cartStore'
+import { useCartStore } from '@/store/cartStore'
 import Image from 'next/image'
 
 export default function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
-    const items = useCart((s) => s.items)
-    const total = useCart((s) => s.total())
+    const items = useCartStore((s) => s.items)
+    const total = useCartStore((s) => s.getTotal())
 
     if (!open) return null
 
@@ -22,7 +22,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
                         {it.image ? <Image src={it.image} alt={it.name} width={64} height={64} className="rounded" /> : <div className="w-16 h-16 bg-gray-100 rounded" />}
                         <div className="flex-1">
                             <div className="font-medium">{it.name}</div>
-                            <div className="text-sm text-gray-600">${(it.price * it.quantity).toFixed(2)} • {it.quantity}x</div>
+                            <div className="text-sm text-gray-600">${(it.price * it.quantity).toFixed(2)} - {it.quantity}x</div>
                         </div>
                     </div>
                 ))}
@@ -41,3 +41,4 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
         </aside>
     )
 }
+

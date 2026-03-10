@@ -1,5 +1,5 @@
 // sanity/schemas/products.ts
-export default {
+const productSchema = {
     name: 'product',
     title: 'Product',
     type: 'document',
@@ -13,3 +13,5 @@ export default {
         { name: 'inStock', type: 'boolean', initialValue: true },
     ],
 }
+
+export default productSchema

@@ -4,7 +4,7 @@ import { SignUp } from '@clerk/nextjs'
 export default function SignUpPage() {
     return (
         <div className="container py-12">
-            <SignUp afterSignUpUrl="/" />
+            <SignUp forceRedirectUrl="/" />
         </div>
     )
 }
