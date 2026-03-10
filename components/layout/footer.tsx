@@ -1,18 +1,24 @@
+import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react'
+
 export default function Footer() {
     return (
-        <footer className="bg-white border-t py-12">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-                <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white italic font-bold">T</div>
-                    <span className="font-bold tracking-tighter text-xl">TEAMART</span>
+        <footer className="bg-white border border-gray-200 rounded-3xl px-8 py-10 mt-6">
+            <div className="flex flex-col items-center gap-6 text-center">
+                <div className="flex items-center gap-8 text-sm text-gray-600">
+                    <a href="#" className="hover:text-gray-900 transition-colors">Home</a>
+                    <a href="#" className="hover:text-gray-900 transition-colors">About</a>
+                    <a href="#" className="hover:text-gray-900 transition-colors">Services</a>
+                    <a href="#" className="hover:text-gray-900 transition-colors">Contact</a>
+                    <a href="#" className="hover:text-gray-900 transition-colors">Help</a>
                 </div>
-                <div className="flex gap-8 text-sm text-gray-500">
-                    <a href="#" className="hover:underline">Privacy</a>
-                    <a href="#" className="hover:underline">Terms</a>
-                    <a href="#" className="hover:underline">Shipping</a>
-                    <a href="#" className="hover:underline">API Docs</a>
+                <div className="flex items-center gap-4 text-indigo-600">
+                    <Facebook size={18} />
+                    <Instagram size={18} />
+                    <Linkedin size={18} />
+                    <Twitter size={18} />
+                    <Github size={18} />
                 </div>
-                <p className="text-xs text-gray-400">© {new Date().getFullYear()} Teamart Labs. Built with Next.js & Sanity.</p>
+                <p className="text-xs text-gray-500">Copyright © {new Date().getFullYear()} Teamart. All rights reserved.</p>
             </div>
         </footer>
     )

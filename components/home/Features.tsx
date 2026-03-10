@@ -1,28 +1,36 @@
-import { Camera, RotateCcw, ShieldCheck, Truck } from 'lucide-react'
+import { ShieldCheck, Truck, RotateCcw } from 'lucide-react'
 
 export default function Features() {
     return (
-        <section className="py-20 bg-black text-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-                <div className="space-y-4">
-                    <ShieldCheck className="text-emerald-400" size={32} />
-                    <h3 className="text-lg font-bold">Secure Stripe Payments</h3>
-                    <p className="text-gray-400 text-sm">Every transaction is encrypted and secured by industry-standard Stripe technology.</p>
+        <section className="bg-white border border-gray-200 rounded-3xl px-8 py-12 md:px-12 md:py-16">
+            <div className="text-center max-w-2xl mx-auto">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Powerful Features</h2>
+                <p className="mt-3 text-gray-500">
+                    Everything you need to manage, track, and grow your store securely and efficiently.
+                </p>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="border border-indigo-200 rounded-2xl p-8 text-center bg-white">
+                    <div className="w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mx-auto">
+                        <ShieldCheck size={20} />
+                    </div>
+                    <h3 className="mt-4 font-semibold text-gray-900">Real-Time Analytics</h3>
+                    <p className="mt-2 text-sm text-gray-500">Get instant insights with live dashboards and KPIs.</p>
                 </div>
-                <div className="space-y-4">
-                    <Truck className="text-sky-400" size={32} />
-                    <h3 className="text-lg font-bold">Global Fast Shipping</h3>
-                    <p className="text-gray-400 text-sm">Vercel-optimized edge delivery ensures our storefront reaches you instantly anywhere.</p>
+                <div className="border border-emerald-200 rounded-2xl p-8 text-center bg-white">
+                    <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                        <Truck size={20} />
+                    </div>
+                    <h3 className="mt-4 font-semibold text-gray-900">Bank-Grade Security</h3>
+                    <p className="mt-2 text-sm text-gray-500">End-to-end encryption and 2FA built in.</p>
                 </div>
-                <div className="space-y-4">
-                    <RotateCcw className="text-amber-400" size={32} />
-                    <h3 className="text-lg font-bold">Easy Returns</h3>
-                    <p className="text-gray-400 text-sm">Not happy? Send it back within 30 days for a full refund, no questions asked.</p>
-                </div>
-                <div className="space-y-4">
-                    <Camera className="text-rose-400" size={32} />
-                    <h3 className="text-lg font-bold">Vision Try-On</h3>
-                    <p className="text-gray-400 text-sm">Coming soon: Use computer vision to see how items fit before you hit checkout.</p>
+                <div className="border border-amber-200 rounded-2xl p-8 text-center bg-white">
+                    <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto">
+                        <RotateCcw size={20} />
+                    </div>
+                    <h3 className="mt-4 font-semibold text-gray-900">Customizable Reports</h3>
+                    <p className="mt-2 text-sm text-gray-500">Export professional reports for tax and review.</p>
                 </div>
             </div>
         </section>

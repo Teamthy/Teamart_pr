@@ -6,7 +6,7 @@ export default function CartPage() {
     const items = useCartStore((s) => s.items)
 
     return (
-        <div className="max-w-4xl mx-auto px-6 pt-28 pb-24">
+        <div className="bg-white border border-gray-200 rounded-3xl px-8 py-10 md:px-12 md:py-14">
             <h1 className="text-3xl font-black mb-6">Your Cart</h1>
             {items.length === 0 ? (
                 <p>Your cart is empty.</p>

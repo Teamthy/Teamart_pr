@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowRight, Camera, Zap } from 'lucide-react'
+import { Camera, Zap } from 'lucide-react'
 
 export default function Hero() {
     return (

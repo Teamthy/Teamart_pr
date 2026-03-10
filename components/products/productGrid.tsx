@@ -23,9 +23,14 @@ export default function ProductGrid() {
     }
 
     return (
-        <section className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-20">
-            <h2 className="text-3xl font-bold mb-10">Featured Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="bg-white border border-gray-200 rounded-3xl px-8 py-12 md:px-12 md:py-16">
+            <div className="text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Featured Products</h2>
+                <p className="mt-3 text-gray-500">
+                    Discover premium products at unbeatable prices curated for quality, comfort and style.
+                </p>
+            </div>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <AnimatePresence mode="popLayout">
                     {PRODUCTS.map((product) => (
                         <ProductCard

@@ -1,9 +1,9 @@
 import "./globals.css"
 import { ClerkProvider } from "@clerk/nextjs"
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata = {
     title: "Teamart",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
     return (
         <ClerkProvider>
-            <html lang="en" className={cn("font-sans", inter.variable)}>
+            <html lang="en" className={cn("font-sans", manrope.variable)}>
                 <body className="min-h-screen">
                     {children}
                 </body>
