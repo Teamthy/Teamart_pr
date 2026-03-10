@@ -2,7 +2,7 @@
   "name": "teamart_pr",
   "version": "1.0.0",
   "private": true,
-  "description": "Teamart — production ready ecommerce starter built with Next.js, React, Tailwind, Clerk, Sanity, and Stripe",
+  "description": "Teamart - production ready ecommerce starter built with Next.js, React, Tailwind, Clerk, Sanity, and Stripe",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -41,7 +41,8 @@
     "@tailwindcss/line-clamp": "^0.4.0",
     "@types/react": "19.2.14",
     "autoprefixer": "^10.4.27",
-    "eslint": "^10.0.2",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.1.6",
     "husky": "^9.0.0",
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
