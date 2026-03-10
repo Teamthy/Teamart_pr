@@ -1,7 +1,17 @@
 // lib/stripe.ts
 import Stripe from 'stripe'
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2026-02-25.clover' })
+let stripeClient: Stripe | null = null
+
+export function getStripe() {
+    if (stripeClient) return stripeClient
+    const secretKey = process.env.STRIPE_SECRET_KEY
+    if (!secretKey) {
+        throw new Error('STRIPE_SECRET_KEY is not set')
+    }
+    stripeClient = new Stripe(secretKey, { apiVersion: '2026-02-25.clover' })
+    return stripeClient
+}
 
 export function buildLineItems(items: { name: string; price: number; quantity: number }[]) {
     return items.map(it => ({

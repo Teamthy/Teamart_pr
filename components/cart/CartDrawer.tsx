@@ -2,12 +2,37 @@
 'use client'
 import { useCartStore } from '@/store/cartStore'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
     const items = useCartStore((s) => s.items)
     const total = useCartStore((s) => s.getTotal())
+    const [isLoading, setIsLoading] = useState(false)
 
     if (!open) return null
+
+    const handleCheckout = async () => {
+        if (items.length === 0) return
+        setIsLoading(true)
+        try {
+            const res = await fetch('/api/checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items }),
+            })
+            const data = await res.json()
+            if (!res.ok) {
+                throw new Error(data?.error || 'Checkout failed')
+            }
+            if (data?.url) {
+                window.location.href = data.url
+            }
+        } catch (err) {
+            console.error(err)
+        } finally {
+            setIsLoading(false)
+        }
+    }
 
     return (
         <aside className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-lg z-50">
@@ -33,9 +58,14 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
                     <div className="font-bold">${total.toFixed(2)}</div>
                 </div>
                 <div className="mt-3">
-                    <form action="/api/checkout" method="post">
-                        <button type="submit" className="w-full px-4 py-3 bg-indigo-600 text-white rounded">Checkout</button>
-                    </form>
+                    <button
+                        type="button"
+                        onClick={handleCheckout}
+                        disabled={isLoading || items.length === 0}
+                        className="w-full px-4 py-3 bg-indigo-600 text-white rounded disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                        {isLoading ? 'Processing...' : 'Checkout'}
+                    </button>
                 </div>
             </div>
         </aside>
