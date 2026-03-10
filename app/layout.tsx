@@ -1,6 +1,4 @@
 import "./globals.css"
-import Navbar from "@/components/layout/Navbar"
-import Footer from "@/components/layout/footer"
 import { ClerkProvider } from "@clerk/nextjs"
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -20,16 +18,8 @@ export default function RootLayout({
     return (
         <ClerkProvider>
             <html lang="en" className={cn("font-sans", inter.variable)}>
-                <body className="min-h-screen flex flex-col">
-
-                    <Navbar />
-
-                    <main className="flex-1">
-                        {children}
-                    </main>
-
-                    <Footer />
-
+                <body className="min-h-screen">
+                    {children}
                 </body>
             </html>
         </ClerkProvider>
