@@ -4,6 +4,6 @@ export type Product = {
     title: string
     shortDescription?: string
     price: number
-    images?: any[]
+    images?: unknown[]
     slug?: { current: string }
 }

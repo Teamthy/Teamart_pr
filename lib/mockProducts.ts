@@ -1,4 +1,4 @@
-import { Product } from '@/types/product';
+import { Product } from '@/types/products';
 
 export const CATEGORIES = ["All", "Apparel", "Footwear", "Accessories", "Tech Wear"];
 

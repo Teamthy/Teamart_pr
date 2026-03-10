@@ -1,9 +1,22 @@
 'use client';
 import React, { useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Camera, Upload, Zap, Maximize2, Move, Info, RefreshCw } from 'lucide-react';
+import { X, Camera, Zap } from 'lucide-react';
 
-export default function VirtualTryOnModal({ product, onClose }: any) {
+type TryOnProduct = {
+    name: string;
+    category: string;
+    image: string;
+};
+
+export default function VirtualTryOnModal({
+    product,
+    onClose,
+}: {
+    product: TryOnProduct;
+    onClose: () => void;
+}) {
     const [userImage, setUserImage] = useState<string | null>(null);
     const [activeStep, setActiveStep] = useState<'upload' | 'processing' | 'preview'>('upload');
     const [scale, setScale] = useState(100);
@@ -39,8 +52,17 @@ export default function VirtualTryOnModal({ product, onClose }: any) {
 
                         {activeStep === 'preview' && userImage && (
                             <div className="relative">
-                                <img src={userImage} alt="user" className="max-w-md rounded" />
-                                <img src={product.image} alt="product" className="absolute top-10 left-10 w-48 opacity-90" />
+                                <Image src={userImage} alt="user" width={512} height={512} unoptimized className="max-w-md rounded h-auto w-auto" />
+                                <Image
+                                    src={product.image}
+                                    alt={product.name}
+                                    width={240}
+                                    height={240}
+                                    className="absolute left-1/2 top-1/2 opacity-90"
+                                    style={{
+                                        transform: `translate(-50%, -50%) scale(${scale / 100})`,
+                                    }}
+                                />
                             </div>
                         )}
                     </div>

@@ -1,12 +1,13 @@
 'use client';
 import React from 'react';
-import { Product } from '@/types/product';
+import Image from 'next/image';
+import { Product } from '@/types/products';
 
 export default function ProductDetail({ product }: { product: Product }) {
     return (
         <main className="max-w-5xl mx-auto p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <img src={product.image} alt={product.name} className="w-full rounded-xl object-cover" />
+                <Image src={product.image} alt={product.name} width={900} height={900} className="w-full rounded-xl object-cover" />
                 <div>
                     <h1 className="text-3xl font-black mb-2">{product.name}</h1>
                     <p className="text-gray-500 mb-4">{product.category}</p>
