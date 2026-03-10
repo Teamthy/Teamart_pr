@@ -93,7 +93,7 @@ export default function Home() {
                         <div className="relative z-10 max-w-2xl">
                             <h2 className="text-5xl md:text-7xl font-black mb-6">READY TO SCALE?</h2>
                             <p className="text-lg text-gray-600 mb-8">
-                                Teamart isn't just a theme - it's a production codebase with Next.js, Clerk Auth, and Stripe webhooks pre-configured.
+                                Teamart isn&apos;t just a theme - it&apos;s a production codebase with Next.js, Clerk Auth, and Stripe webhooks pre-configured.
                             </p>
                             <button className="bg-black text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition-transform">
                                 Deploy with Vercel

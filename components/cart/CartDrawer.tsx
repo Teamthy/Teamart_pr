@@ -72,7 +72,7 @@ export default function CartDrawer() {
                                         <ShoppingBag size={40} className="text-gray-300" />
                                     </div>
                                     <h3 className="font-bold text-lg mb-2">Your cart is empty</h3>
-                                    <p className="text-gray-500 text-sm mb-6">Looks like you haven't added anything to your cart yet.</p>
+                                    <p className="text-gray-500 text-sm mb-6">Looks like you haven&apos;t added anything to your cart yet.</p>
                                     <button onClick={closeCart} className="bg-black text-white px-8 py-3 rounded-full font-bold">Start Shopping</button>
                                 </div>
                             ) : (

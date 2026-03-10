@@ -5,57 +5,65 @@ import { ArrowRight, Camera, Zap } from 'lucide-react'
 
 export default function Hero() {
     return (
-        <section className="relative h-[85vh] w-full bg-[#f3f4f6] overflow-hidden flex items-center">
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=2000&auto=format&fit=crop"
-                    alt="Hero"
-                    fill
-                    sizes="100vw"
-                    priority
-                    className="object-cover opacity-60"
-                />
-            </div>
-            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <section className="bg-white border border-gray-200 rounded-3xl px-10 py-12 md:px-14 md:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-2xl"
+                    transition={{ duration: 0.6 }}
                 >
-                    <span className="inline-block bg-black text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 mb-6 rounded">
-                        Summer Drop 2025
-                    </span>
-                    <h1 className="text-6xl md:text-8xl font-black text-black leading-none mb-6">
-                        STYLE MEETS <br />{' '}
-                        <span
-                            className="text-transparent border-t-2 border-b-2 border-black px-2 inline-block py-1"
-                            style={{ WebkitTextStroke: '1px black' }}
-                        >
-                            PRECISION
-                        </span>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
+                        AI-powered <br /> influencer marketing <br /> made simple.
                     </h1>
-                    <p className="text-lg text-gray-700 mb-8 max-w-lg">
-                        Experience the future of fashion with Teamart. Production-ready, performance-driven, and designed for the modern creator.
+                    <p className="mt-4 text-gray-600 text-base md:text-lg max-w-lg">
+                        Unlock smarter workflows with AI tools designed to boost productivity, simplify tasks and help you do more with less effort.
                     </p>
-                    <div className="flex flex-wrap gap-4">
-                        <button className="bg-black text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
-                            Shop Collection <ArrowRight size={20} />
+                    <div className="mt-8 flex flex-wrap gap-4">
+                        <button className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-sm hover:bg-indigo-700 transition-colors">
+                            Get started
                         </button>
-                        <button className="bg-white text-black px-8 py-4 rounded-full font-bold border border-black/10 flex items-center gap-2 hover:bg-gray-50 transition-colors">
-                            <Camera size={20} /> Try-On Virtual (Beta)
+                        <button className="px-6 py-3 rounded-xl border border-gray-300 text-gray-800 font-semibold hover:bg-gray-50 transition-colors">
+                            Watch demo
                         </button>
                     </div>
                 </motion.div>
-            </div>
-            <div className="absolute bottom-10 right-10 flex flex-col gap-4">
-                <div className="bg-white/80 backdrop-blur p-4 rounded-2xl border border-white shadow-xl flex items-center gap-3">
-                    <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white">
-                        <Zap size={20} />
-                    </div>
-                    <div>
-                        <p className="text-[10px] text-gray-500 uppercase font-bold">Fast Delivery</p>
-                        <p className="text-sm font-bold">Ships in 24 Hours</p>
+
+                <div className="relative flex justify-center">
+                    <div className="relative w-[260px] md:w-[320px] lg:w-[360px]">
+                        <div className="absolute -inset-3 rounded-[40px] border border-gray-200 bg-white shadow-lg" />
+                        <div className="relative rounded-[36px] overflow-hidden border border-gray-100">
+                            <Image
+                                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=900&auto=format&fit=crop"
+                                alt="Teamart creator"
+                                width={720}
+                                height={900}
+                                className="w-full h-auto"
+                            />
+                        </div>
+
+                        <div className="absolute -left-12 top-20 bg-white rounded-2xl shadow-md border border-gray-200 px-4 py-3 flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">50</div>
+                            <div>
+                                <p className="text-xs text-gray-500">Happy clients</p>
+                                <p className="text-sm font-semibold">+1.2k this month</p>
+                            </div>
+                        </div>
+
+                        <div className="absolute -right-10 top-8 bg-white rounded-full shadow-md border border-gray-200 p-2">
+                            <div className="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-500">
+                                <Camera size={18} />
+                            </div>
+                        </div>
+
+                        <div className="absolute right-0 -bottom-6 bg-white rounded-2xl shadow-md border border-gray-200 px-4 py-3 flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                                <Zap size={18} />
+                            </div>
+                            <div>
+                                <p className="text-xs text-gray-500">Instant launch</p>
+                                <p className="text-sm font-semibold">Ready in 24h</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
