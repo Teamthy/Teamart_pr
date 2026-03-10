@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { Star } from 'lucide-react';
 import type { Product } from '@/types/products';
 
 export default function ProductDetail({ product }: { product: Product }) {
@@ -36,7 +37,12 @@ export default function ProductDetail({ product }: { product: Product }) {
                 <div>
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{product.name}</h1>
                     <div className="flex items-center gap-2 mt-2 text-sm text-indigo-600">
-                        <span>★★★★☆</span>
+                        <div className="flex items-center gap-0.5">
+                            {[1, 2, 3, 4].map((star) => (
+                                <Star key={star} size={14} className="fill-indigo-500 text-indigo-500" />
+                            ))}
+                            <Star size={14} className="text-indigo-300" />
+                        </div>
                         <span className="text-gray-500">({product.reviews})</span>
                     </div>
                     <p className="mt-4 text-gray-500">MRP: <span className="line-through">${product.price + 30}</span></p>

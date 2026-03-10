@@ -12,11 +12,11 @@ export default function Footer() {
                     <a href="#" className="hover:text-gray-900 transition-colors">Help</a>
                 </div>
                 <div className="flex items-center gap-4 text-indigo-600">
-                    <Facebook size={18} />
-                    <Instagram size={18} />
-                    <Linkedin size={18} />
-                    <Twitter size={18} />
-                    <Github size={18} />
+                    <Facebook size={20} />
+                    <Instagram size={20} />
+                    <Linkedin size={20} />
+                    <Twitter size={20} />
+
                 </div>
                 <p className="text-xs text-gray-500">Copyright © {new Date().getFullYear()} Teamart. All rights reserved.</p>
                 <p className="text-xs text-gray-500">Designed by Teamthy</p>
