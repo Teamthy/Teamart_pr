@@ -3,17 +3,19 @@
 import { create } from "zustand"
 
 export type CartItem = {
-    id: string
+    id: number
     name: string
     price: number
     image?: string
+    category?: string
     quantity: number
 }
 
 type CartStore = {
     items: CartItem[]
     addItem: (item: CartItem) => void
-    removeItem: (id: string) => void
+    removeItem: (id: number) => void
+    updateQuantity: (id: number, delta: number) => void
     clearCart: () => void
     getTotal: () => number
 }
@@ -43,6 +45,15 @@ export const useCartStore = create<CartStore>((set, get) => ({
     removeItem: (id) =>
         set((state) => ({
             items: state.items.filter((item) => item.id !== id),
+        })),
+
+    updateQuantity: (id, delta) =>
+        set((state) => ({
+            items: state.items.map((item) => {
+                if (item.id !== id) return item
+                const nextQty = Math.max(1, item.quantity + delta)
+                return { ...item, quantity: nextQty }
+            }),
         })),
 
     clearCart: () =>
