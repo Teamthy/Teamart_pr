@@ -63,10 +63,10 @@ export default function Navbar() {
                             </span>
                         )}
                     </button>
-                    <button className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all">
+                    <Link href="/sign-in" className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all">
                         <User size={16} />
                         <span className="hidden sm:inline">Sign In</span>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </nav>
